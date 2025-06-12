@@ -1,0 +1,77 @@
+<!-- Login Page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  {% load static %}
+  <!-- Linking favicon and stylesheet -->
+  <link rel="icon" type="image/png" href="{% static 'image/S3 main logopreview.png' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+</head>
+
+<body>
+
+  <!-- Header with logos 
+  <header style="background-color: #f4f6f8;">
+    <img src="{% static 'image/skandh logo.png' %}" alt="Company logo" class="logo-top-left">
+    <img src="{% static 'image/th.jpg' %}" alt="Company logo" class="logo-top-right">
+  </header>-->
+
+  <!-- Login form container -->
+
+  <div class="container-top">
+    <h3 class="heading">sInvCapture<sup class="super-script">TM</sup>
+    </h3>
+  </div>
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="input-row">
+        <label>Username:</label>
+        <input type="text" name="username" autocomplete="off" required>
+      </div>
+      <div class="input-row">
+        <label>Password:</label>
+        <input type="password" name="password" required>
+      </div>
+      <button type="submit" class="login-button">Sign in</button>
+      <p style="text-align:center; margin-top: 10px;">
+        Don't have an account? <a href="{% url 'register' %}">Register here</a>
+      </p>
+
+    </form>
+
+    <!-- Flash messages -->
+    {% if messages %}
+    {% for message in messages %}
+    <p class="message-{{ message.tags }} fade-message">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="container-bottom">
+    <div class="contain-items">
+      <img src="{% static 'image/th.jpg' %}" alt="Company logo" class="logo-top-right">
+      <span class="text">By S3group.inc</span>
+    </div>
+  </div>
+
+  <!-- JavaScript for ESC key and auto-hiding messages -->
+  <script>
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") {
+        window.location.href = "{% url 'owner' %}";
+      }
+    });
+
+    setTimeout(function () {
+      const messages = document.querySelectorAll(".fade-message");
+      messages.forEach(function (msg) {
+        msg.style.display = "none";
+      });
+    }, 3000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register</title>
+
+  {% load static %}
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{% static 'image/S3 main logopreview.png' %}">
+
+  <!-- Link to external CSS stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+
+  <!-- Page header with left and right company logos -->
+  <header>
+    <img src="{% static 'image/skandh logo.png' %}" alt="Company logo" class="logo-top-left">
+    <img src="{% static 'image/S3 main Logopreview.png' %}" class="logo-top-right">
+  </header>
+
+  <!-- Logout button linking to logout view -->
+  <a href="{% url 'logout' %}">
+    <button class="logout-button">Logout</button>
+  </a>
+
+  <!-- Registration form container -->
+  <div class="container">
+    <h2>Register</h2>
+
+    <!-- User registration form -->
+    <form method="POST">
+      {% csrf_token %}
+
+      <!-- Username input -->
+      <div class="input-row">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+      </div>
+
+      <!-- Password input -->
+      <div class="input-row">
+        <label>Password:</label>
+        <input type="password" name="password1" required
+          style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 0;">
+      </div>
+
+      <!-- Confirm password input -->
+      <div class="input-row">
+        <label>
+          <p style="margin-bottom: 2px;">Confirm</p>
+          <p style="margin-top: 0px;">Password:</p>
+        </label>
+        <input type="password" name="password2" required
+          style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px; min-width: 0;">
+      </div>
+
+      <!-- Submit button for form -->
+      <button type="submit"
+        style="background-color: blue; color: azure; padding: 7px 12px; border-radius: 5px; margin-top: 10px; border-width: 0px; margin-right: 10px; margin-left: 250px; cursor: pointer;">
+        Register
+      </button>
+    </form>
+
+    <!-- Display messages if any (e.g., errors or success) -->
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+</body>
+
+</html>

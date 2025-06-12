@@ -1,0 +1,74 @@
+<!-- Owner Page for capturing the owner's name -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Owner Page</title>
+  {% load static %}
+
+  <!-- Linking favicon and stylesheet -->
+  <link rel="icon" type="image/png" href="{% static 'image/S3 main logopreview.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <!-- JavaScript to submit form on Enter key press -->
+  <script>
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.querySelector("form").submit();
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Header with company logos -->
+  <header>
+    <img src="{% static 'image/skandh logo.png' %}" alt="Company logo" class="logo-top-left">
+    <img src="{% static 'image/th.jpg' %}" alt="Company logo" class="logo-top-right">
+  </header>
+
+  <!-- Owner form section -->
+  <div class="container">
+    <h2>Inventory Capture</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="input-row">
+        <label>Owner Name:</label>
+        <input type="text" name="owner" autocomplete="off" required>
+      </div>
+    </form>
+
+    <!-- ESC button to go back to main page -->
+    <a href="{% url 'main' %}" title="Escape">
+      <button class="esc-button">ESC</button>
+    </a>
+
+    <!-- Display Django flash messages -->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="fade-message message-{{ message.tags }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- JavaScript: ESC key redirects, messages auto-hide -->
+  <script>
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") {
+        window.location.href = "{% url 'main' %}";
+      }
+    });
+    setTimeout(function () {
+      const messages = document.querySelectorAll(".fade-message");
+      messages.forEach(function (msg) {
+        msg.style.display = "none";
+      });
+    }, 3000);
+  </script>
+</body>
+
+</html>

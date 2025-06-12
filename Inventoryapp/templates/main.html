@@ -1,0 +1,72 @@
+<!-- Main Dashboard Page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Main Page</title>
+  {% load static %}
+  <!-- Linking favicon and stylesheet -->
+  <link rel="icon" type="image/png" href="{% static 'image/S3 main logopreview.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+
+  <!-- Header with logos -->
+  <header>
+    <img src="{% static 'image/skandh logo.png' %}" alt="Company logo" class="logo-top-left">
+    <img src="{% static 'image/th.jpg' %}" alt="Company logo" class="logo-top-right">
+  </header>
+
+  <!-- Logout button -->
+  <a href="{% url 'logout' %}">
+    <button class="logout-button">Logout</button>
+  </a>
+
+  <!-- Action buttons for Excel download and Inventory capture -->
+  <div class="container">
+    <h2>Main Page</h2>
+    <div>
+      <!-- Download Excel -->
+      <form action="{% url 'generate_asn_download' %}" method="post">
+        {% csrf_token %}
+        <button class="download-excel-button" type="submit">1. Generate ASN & Download </button>
+      </form>
+
+      <!-- Inventory Capture -->
+      <form action="{% url 'owner' %}" method="get">
+        <button class="inventory-capture-button" type="submit">2. Inventory Capture</button>
+      </form>
+    </div>
+
+    <!-- Show flash messages -->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="fade-message message-{{ message.tags }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- JavaScript: Message fade, number key shortcuts -->
+  <script>
+    setTimeout(function () {
+      const messages = document.querySelectorAll(".fade-message");
+      messages.forEach(function (msg) {
+        msg.style.display = "none";
+      });
+    }, 3000);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === '1') {
+        document.querySelector('.download-excel-button').click();
+      }
+      if (event.key === '2') {
+        document.querySelector('.inventory-capture-button').click();
+      }
+    });
+  </script>
+</body>
+
+</html>

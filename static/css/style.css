@@ -1,0 +1,282 @@
+/* Reset default box sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Set global body styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo image inside the layout */
+.logo {
+  width: 5px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+/* Main container for form and content */
+.container {
+  background-color: white;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+/* Heading inside the container */
+.container h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 30px;
+}
+
+/* Flex layout for item grouping */
+.contain-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Footer or supporting text */
+.text {
+  color: #6666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Labels for input fields */
+label {
+  display: block;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+/* Input field row styling */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+/* Label inside input row */
+.input-row label {
+  text-align: center;
+  width: 100px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Text and password input fields */
+.input-row input[type="text"],
+.input-row input[type="password"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 0;
+}
+
+/* Page title style */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hidden buttons (if needed for scripts) */
+.btn {
+  display: none;
+}
+
+/* Escape button styles */
+.esc-button {
+  background-color: red;
+  color: azure;
+  padding: 7px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: none;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+/* Login button style */
+.login-button {
+  background-color: blue;
+  color: azure;
+  padding: 7px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 250px;
+  margin-right: 10px;
+}
+
+/* Alert message for success */
+.message-success {
+  color: green;
+  background-color: #b4f7c4;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Alert message for errors */
+.message-error {
+  color: rgb(128, 0, 0);
+  background-color: #f8c4c8;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Alert message for warnings */
+.message-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ffeeba;
+  text-align: center;
+}
+
+/* Wrapper for vertical flex layout */
+.container-items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top-right aligned section (for logout or info) */
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+/* Logout button with fixed position */
+.logout-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #d9534f;
+  color: white;
+  margin-top: 70px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Hover and active states for buttons */
+.logout-button:hover,
+.esc-button:hover {
+  background-color: #e7302a;
+  transform: translateY(-2px);
+}
+
+.logout-button:active,
+.esc-button:active {
+  transform: scale(0.98);
+}
+
+/* Logo positioning styles for corner placement */
+.logo-top-left,
+.logo-top-right {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  width: 50px;
+  height: auto;
+  position: absolute;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.logo-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.logo-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+/* Buttons for download and capture actions */
+.download-excel-button,
+.inventory-capture-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Padding for capture button */
+.inventory-capture-button {
+  padding: 12px 67px;
+}
+
+/* Padding for download button */
+.download-excel-button {
+  padding: 12px 40px;
+}
+
+/* Hover and active states for action buttons */
+.download-excel-button:hover,
+.inventory-capture-button:hover,
+.login-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.download-excel-button:active,
+.inventory-capture-button:active,
+.login-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 600px) {
+  .top-right {
+    top: 10px;
+    right: 10px;
+  }
+
+  .logo {
+    width: 20px;
+  }
+
+  .logout-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    top: 10px;
+    right: 10px;
+  }
+}

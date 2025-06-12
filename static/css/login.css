@@ -1,0 +1,159 @@
+/* Reset default box sizing and spacing for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set default body styles including font, layout, and background */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the main page heading */
+.heading {
+  color: #004080;
+}
+
+/* Container for top title section */
+.container-top {
+  background-color: white;
+  max-width: 500px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+/* Container for login form */
+.container {
+  background-color: white;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for small superscript text under heading */
+.super-script {
+  font-size: 12px;
+  color: #004080;
+}
+
+/* Style for login form heading */
+.container h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 30px;
+}
+
+/* Layout for label and input in each row */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Style for input labels */
+.input-row label {
+  width: 100px;
+  font-weight: bold;
+}
+
+/* Style for input text and password fields */
+.input-row input[type="text"],
+.input-row input[type="password"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Style for the login button */
+.login-button {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 100px;
+  float: right;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect for login button */
+.login-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Active click effect for login button */
+.login-button:active {
+  transform: scale(0.98);
+}
+
+/* Style for success alert messages */
+.message-success {
+  color: green;
+  background-color: #b4f7c4;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Style for error alert messages */
+.message-error {
+  color: darkred;
+  background-color: #f8c4c8;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Style for warning alert messages */
+.message-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Container for footer section */
+.container-bottom {
+  margin: 20px 0 80px;
+  text-align: center;
+}
+
+/* Layout for footer items (logo and text) */
+.contain-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Style for footer logo/image */
+.contain-items img {
+  width: 40px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Style for footer description text */
+.text {
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+}

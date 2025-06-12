@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Capture</title>
+  {% load static %}
+  <!-- Linking favicon, stylesheet, and Google fonts -->
+  <link rel="icon" type="image/png" href="{% static 'image/S3 main logopreview.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Header with logos -->
+  <header>
+    <img src="{% static 'image/skandh logo.png' %}" alt="Company logo" class="logo-top-left">
+    <img src="{% static 'image/th.jpg' %}" alt="Company logo" class="logo-top-right">
+  </header>
+
+  <!-- Main container for inventory form -->
+  <div class="container">
+    <h2>Inventory Capture</h2>
+
+    <!-- Inventory input form -->
+    <form action="" method="POST" id="inventoryForm">
+      {% csrf_token %}
+      <div class="input-row">
+        <label for="location">Location:</label>
+        <input type="text" name="location" autocomplete="off" placeholder="Enter the Location" required>
+      </div>
+      <div class="input-row">
+        <label for="SKU">SKU:</label>
+        <input type="text" name="sku" autocomplete="off" placeholder="Enter the SKU" required>
+      </div>
+      <div class="input-row">
+        <label for="case">LPN:</label>
+        <input type="text" name="case" autocomplete="off" placeholder="Enter the Case">
+      </div>
+      <div class="input-row">
+        <label for="quantity">Quantity:</label>
+        <input type="text" name="quantity" autocomplete="off" placeholder="Enter the Quantity" required>
+      </div>
+      <div class="input-row">
+        <label for="uom">UOM:</label>
+        <input type="text" name="uom" autocomplete="off" placeholder="Enter the UOM" required>
+      </div>
+      <input type="submit" class="btn">
+    </form>
+
+    <!-- ESC Button to go back to Owner page -->
+    <a href="{% url 'owner' %}" title="Escape">
+      <button class="esc-button">ESC</button>
+    </a>
+
+    <!-- Display flash messages -->
+    {% if messages %}
+    {% for message in messages %}
+    <p class="message-{{ message.tags }} fade-message">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- JavaScript: ESC key navigation and message auto-hide -->
+  <script>
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") {
+        window.location.href = "{% url 'owner' %}";
+      }
+    });
+
+    setTimeout(function () {
+      const messages = document.querySelectorAll(".fade-message");
+      messages.forEach(function (msg) {
+        msg.style.display = "none";
+      });
+    }, 3000);
+  </script>
+</body>
+
+</html>
