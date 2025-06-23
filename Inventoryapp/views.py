@@ -241,3 +241,4 @@ def generate_asn_and_download(request):
             return render(request, "main.html")
 
     return redirect("main")
+    
